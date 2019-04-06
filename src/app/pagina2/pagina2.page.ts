@@ -16,6 +16,15 @@ export class Pagina2Page implements OnInit {
 
   constructor(private navCtrl: NavController) { }
 
+
+  irAtras() {
+    this.navCtrl.navigateBack(['/tabs/principal', {}]);
+  }
+
+  irPrincipal() {
+    this.navCtrl.navigateBack(['/tabs/principal', {}]);
+  }
+
   ngOnInit() {
   }
 

@@ -18,12 +18,13 @@ pelicula: any;
    }
 
 
-   irAtras() {
+  irAtras() {
     this.navCtrl.navigateBack(['/pagina2', {}]);
   }
 
   irPrincipal() {
-    this.navCtrl.navigateBack(['/tabs/principal', {}]);  }
+    this.navCtrl.navigateBack(['/tabs/principal', {}]);
+  }
 
   ngOnInit() {
   }

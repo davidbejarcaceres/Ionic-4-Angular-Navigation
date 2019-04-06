@@ -26,12 +26,12 @@ import { Pagina2Page } from './pagina2/pagina2.page';
     SplashScreen,
     PrincipalPage,
     HomePage,
-    ModalPage,
     Ajustes2Page,
     AjustesPage,
     Pagina2Page,
     Pagina3Page,
     TabsPage,
+    ModalPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

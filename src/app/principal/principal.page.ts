@@ -1,5 +1,6 @@
+import { ModalPage } from './../modal/modal.page';
 import { Component, OnInit } from '@angular/core';
-import {NavController} from "@ionic/angular";
+import {NavController, ModalController, NavParams} from "@ionic/angular";
 
 @Component({
   selector: 'app-principal',
@@ -8,9 +9,22 @@ import {NavController} from "@ionic/angular";
 })
 export class PrincipalPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, public modalCtrl: ModalController) { }
 
   ngOnInit() {
+  }
+
+  async mostrarModal() {
+    const modal = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        'prop1': "David",
+        'prop2': "Bejar"
+      }
+    });
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+    console.log(data.result);
   }
 
   navegarA2(){
