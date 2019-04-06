@@ -1,3 +1,4 @@
+import { NavParams } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -19,8 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
   ],
-  declarations: [ModalPage]
+  declarations: [ModalPage],
+  entryComponents: [ModalPage],
+  exports: [ModalPage]
 })
 export class ModalPageModule {}

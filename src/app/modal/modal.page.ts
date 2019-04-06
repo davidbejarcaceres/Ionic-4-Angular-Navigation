@@ -1,36 +1,34 @@
-import { ModalController } from '@ionic/angular';
-import { Component, OnInit, Input } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { NavController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.page.html',
   styleUrls: ['./modal.page.scss'],
 })
+
+@Injectable()
 export class ModalPage implements OnInit {
 
-  // "value" passed in componentProps
-@Input() nombre: string;
-apellido: string;
 
-  constructor(public navCtrl: NavController,
-    public navParams: NavParams, private modalController: ModalController) {
-      console.log(this.navParams.data);
-      this.nombre = this.navParams.get('prop1');
-      this.apellido = this.navParams.get('prop2');
-      console.log(this.nombre);
-      console.log(this.apellido);
-     }
+@Input() nombre: any;
+@Input() apellido: any;
 
-  cerrarModal() {
-      // Dismiss the top modal returning some data object
-    this.modalController.dismiss({
-      'result': "Hola desde la Modal Page"
-    })
+constructor(private modalController: ModalController, private parametros: ActivatedRoute) {
 
+}
+
+  ngOnInit(): void {
+    console.log(this.nombre);
+    console.log(this.apellido);
   }
-
-  ngOnInit() {
+  
+  cerrarModal() {
+    // Dismiss the top modal returning some data object
+    this.modalController.dismiss({
+      result: "Hola desde la Modal Page"
+    })
   }
 
 }

@@ -1,3 +1,6 @@
+import { AppModule } from './../app.module';
+import { ModalPageModule } from './../modal/modal.module';
+import { ModalPage } from './../modal/modal.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,12 +18,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
+  entryComponents: [],
+  imports: [    
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{ path: '', component: PrincipalPage }])
+    ModalPageModule,
+    RouterModule.forChild([{ path: '', component: PrincipalPage }]),
   ],
-  declarations: [PrincipalPage]
+  declarations: [PrincipalPage],
+  exports: []
 })
 export class PrincipalPageModule {}

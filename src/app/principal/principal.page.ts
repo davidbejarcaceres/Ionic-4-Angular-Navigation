@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { ModalPage } from './../modal/modal.page';
 import { Component, OnInit } from '@angular/core';
 import {NavController, ModalController, NavParams} from "@ionic/angular";
+import { ModalPageModule } from './../modal/modal.module';
 
 @Component({
   selector: 'app-principal',
@@ -9,22 +11,25 @@ import {NavController, ModalController, NavParams} from "@ionic/angular";
 })
 export class PrincipalPage implements OnInit {
 
-  constructor(private navCtrl: NavController, public modalCtrl: ModalController) { }
+  constructor(private navCtrl: NavController, private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
+  
   async mostrarModal() {
+    console.log("Inicia Modal");
+    
     const modal = await this.modalCtrl.create({
       component: ModalPage,
       componentProps: {
-        'prop1': "David",
-        'prop2': "Bejar"
+        nombre: "David",
+        apellido: "Bejar"
       }
     });
-    await modal.present();
-    const { data } = await modal.onDidDismiss();
-    console.log(data.result);
+    modal.present();
+    // await modal.onDidDismiss().then(res => alert(JSON.stringify(res)));
+    await modal.onDidDismiss().then(res => console.log(res.data));
   }
 
   navegarA2(){
