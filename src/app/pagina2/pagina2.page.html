@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pagina2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item button *ngFor="let pelicula of peliculas" [routerLink]="['/pagina3/', pelicula]" routerDirection="forward">
+          <ion-ripple-effect></ion-ripple-effect>        
+          <ion-label>
+              <h2>{{pelicula.titulo}}</h2>
+    
+              <p>{{pelicula.director}}</p>
+            </ion-label>  
+        </ion-item>    
+    </ion-list>
+
+</ion-content>

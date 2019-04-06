@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pagina3</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-card-subtitle>Información</ion-card-subtitle>
+          <ion-card-title>{{pelicula.titulo}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-ripple-effect></ion-ripple-effect>
+            <div *ngIf="pelicula.description; else elseBlock"> 
+                {{pelicula.director}}
+            </div>
+              <ng-template #elseBlock>No hay descripción disponible</ng-template>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-button expand="block" (click)="irAtras()" routerDirection="backward">Ir a Pagina 2
+          <ion-ripple-effect></ion-ripple-effect>        
+      </ion-button>
+      <ion-button expand="block" (click)="irPrincipal()" routerDirection="backward">Ir a Pagina Principal
+          <ion-ripple-effect></ion-ripple-effect>        
+      </ion-button>
+
+</ion-content>
